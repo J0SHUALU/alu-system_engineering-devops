@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 #Install and configure Nginx web server
+
 apt-get update -y
 apt-get install -y nginx
 
 echo "Holberton School for the win!" > /var/www/html/index.html
 
-# Make sure Nginx is running
-service nginx start
-
-# Ensure Nginx starts on boot
-update-rc.d nginx defaults
+nginx -s reload
