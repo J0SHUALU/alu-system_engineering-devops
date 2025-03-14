@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+
+    <style>
+        body {
+            margin-top: 0px;
+            padding: 0px 20px;
+            font-size: 20px;
+        }
+
+        .main-body {
+          display: flex;
+          flex-direction: column-reverse;
+          align-items: start;
+          position: absolute;
+          transform: translate(-50%, -50%);
+          top: 50vh;
+          left: 50%;
+          border: 2px solid indigo;
+          padding: 50px;
+          border-radius: 50px;
+          background: linear-gradient(green, transparent);
+        }
+
+        .main-body-top > img{
+            display: block;
+            margin: auto;
+        }
+
+        .main-body-inner > div > h1 {
+            color: green;
+        }
+
+        .main-body-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-body-inner > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .home-link {
+            color: lightblue;
+            font-size: 30px;
+            font-weight: 600;
+            background-color: orange;
+            padding: 15px 60px;
+            border-radius: 20px;
+            border: 1px solid red;
+            outline: none;
+            cursor: pointer;
+            text-decoration: none;
+        }  
+    </style>
+</head>
+<body>
+    <div class="main-body">
+        <div class="main-body-inner">
+            <div>
+                <h1>Ceci n'est pas une page</h1>
+                <p style="word-wrap: normal;">How did we get here?</p>
+                <a href="/" class="home-link">Go Back<a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
