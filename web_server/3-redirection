@@ -1,26 +1,25 @@
 #!/usr/bin/env bash
 # Set up /redirect_me.
-
-apt-get update
-apt-get -y install nginx
-sudo ufw allow 'Nginx HTTP'
-mkdir -p /var/www/html/
-sudo chmod -R 755 /var/www
-echo 'Hello World!' > /var/www/html/index.html
-SERVER_CONFIG="server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
+sudo apt-get update -y
+sudo apt-get install -y nginx
+#sudo ufw allow 'Nginx HTTP'
+config=\
+"server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
 	root /var/www/html;
 	index index.html index.htm index.nginx-debian.html;
 	server_name _;
 	location / {
 		try_files \$uri \$uri/ =404;
-	}
-	location /redirect_me{
+        }
+	location /redirect_me {
 		return 301 https://github.com/J0SHUALU;
 	}
-}"
-
-bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
-
+}
+"
+sudo chown -R "$USER":"$USER" /var/www/html/index.html
+sudo chown -R "$USER":"$USER" /etc/nginx/sites-available/default
+echo "Holberton School" > /var/www/html/index.html
+echo "$config" > /etc/nginx/sites-available/default
 sudo service nginx restart
