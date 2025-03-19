@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Set up /redirect_me.
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+echo "Holberton School" | sudo tee /var/www/html/index.html
+
+config_str="server_name _;\\
+    rewrite ^/redirect_me https://github.com/J0SHUALU/ permanent;"
+sudo sed -i "s|server_name _;|$config_str|" /etc/nginx/sites-available/default
+
+sudo nginx -t
+sudo service nginx start
